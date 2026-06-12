@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — HyperliquidDrinkSmarter</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #222; }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.2rem; margin-top: 2rem; }
+    a { color: #4C6FFF; }
+    ul { padding-left: 1.25rem; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy — HyperliquidDrinkSmarter</h1>
+  <p><strong>Last updated:</strong> June 11, 2026</p>
+  <p><strong>App:</strong> HyperliquidDrinkSmarter (Bundle ID: com.hyperliquiddrinksmarter.app)</p>
+  <p><strong>Developer:</strong> Independent developer</p>
+  <p><strong>Contact:</strong> <a href="mailto:support@hyperliquiddrinksmarter3121.info">support@hyperliquiddrinksmarter3121.info</a></p>
+
+  <p>This Privacy Policy explains how HyperliquidDrinkSmarter ("the app", "we", "us") handles information when you use our iOS application.</p>
+
+  <h2>1. Summary</h2>
+  <ul>
+    <li><strong>No account required.</strong> We do not ask you to sign in.</li>
+    <li><strong>No ads or ad tracking.</strong> We do not show third-party advertising or use advertising identifiers.</li>
+    <li><strong>Local-first.</strong> Your hydration and meal logs, goals, reminders, coach history, and cached insights are stored on your device.</li>
+    <li><strong>AI is optional and off by default.</strong> Network requests for AI features happen only if you explicitly enable "AI Coach" in Settings.</li>
+  </ul>
+
+  <h2>2. Information stored on your device</h2>
+  <p>The following data is stored locally on your iPhone or iPad using Apple's SwiftData framework:</p>
+  <ul>
+    <li>Hydration logs (beverage type, volume, timestamp)</li>
+    <li>Meal logs (description, estimated or manual calories and macros)</li>
+    <li>Your goals (hydration target, calorie tracking preferences)</li>
+    <li>AI Coach conversation history (if you use the Coach tab)</li>
+    <li>Cached daily and weekly insights</li>
+    <li>App preferences (units, theme, reminder settings, AI Coach on/off)</li>
+  </ul>
+  <p>This on-device data is <strong>not automatically uploaded</strong> to our servers. It remains on your device unless you use an AI feature described in Section 3.</p>
+
+  <h2>3. AI Coach features (optional, off by default)</h2>
+  <p>If you enable <strong>"AI Coach"</strong> in Settings, the app may send specific information over an encrypted HTTPS connection to our Cloudflare Worker proxy, which forwards the request to a third-party AI language-model API (<code>llms.dotpoin.com</code>) to generate a response.</p>
+
+  <h3>3.1 What may be sent when AI Coach is enabled</h3>
+  <ul>
+    <li><strong>Meal estimation:</strong> the free-text meal description you type and your selected portion hint (e.g. Small / Medium / Large).</li>
+    <li><strong>Coach chat:</strong> the question you type and aggregate context for today (e.g. hydration ml so far, hydration goal, calories today, calorie goal).</li>
+    <li><strong>Daily insight:</strong> today's date, hydration totals, hydration goal, and a list of today's logged meals (description and calories only).</li>
+    <li><strong>Weekly summary:</strong> daily hydration and calorie totals for the selected week and your hydration goal.</li>
+  </ul>
+
+  <h3>3.2 What is NOT sent</h3>
+  <ul>
+    <li>Your name, email address, or Apple ID</li>
+    <li>Device identifiers, advertising IDs, or precise location</li>
+    <li>Your full historical log beyond the aggregates needed for the specific AI request</li>
+    <li>Photos, contacts, health records from Apple Health, or microphone/camera data (the app does not access these)</li>
+  </ul>
+
+  <h3>3.3 How AI requests work technically</h3>
+  <ol>
+    <li>The iOS app sends a request to our Cloudflare Worker endpoint (<code>POST /chat</code>).</li>
+    <li>The worker stores the API credential server-side and forwards the request to <code>https://llms.dotpoin.com/v1/chat/completions</code>.</li>
+    <li>The AI provider returns a generated response; the worker passes it back to the app.</li>
+    <li>Our worker is a <strong>stateless proxy</strong> — it does not persist the content of your AI requests in a database.</li>
+  </ol>
+
+  <p><strong>Important:</strong> Do not enter sensitive medical information (e.g. details about a diagnosed condition, medications, or clinical lab results) into meal descriptions or coach questions. AI responses are general wellness information only.</p>
+
+  <p>Third-party AI providers may process inputs according to their own privacy policies. We do not control their retention practices. If you do not want any data sent for AI processing, keep <strong>AI Coach disabled</strong> (the default).</p>
+
+  <h2>4. Notifications</h2>
+  <p>If you enable hydration reminders, the app schedules <strong>local notifications</strong> on your device. Reminder schedules and notification content are not transmitted to our servers.</p>
+
+  <h2>5. Analytics, advertising, and tracking</h2>
+  <p>HyperliquidDrinkSmarter does not:</p>
+  <ul>
+    <li>Display third-party advertisements</li>
+    <li>Use cross-app tracking or advertising SDKs</li>
+    <li>Sell your personal information</li>
+    <li>Require account registration</li>
+  </ul>
+
+  <h2>6. Your choices and rights</h2>
+  <ul>
+    <li><strong>Disable AI Coach:</strong> Settings → AI Coach → turn off at any time.</li>
+    <li><strong>Delete local data:</strong> Settings → Data → "Delete all local data". This removes hydration and meal logs, goals, coach conversation history, and cached daily/weekly insights from your device. App preferences (units, theme, reminders, and whether AI Coach is on) are kept unless you change them separately.</li>
+    <li><strong>Export your data:</strong> Settings → Data → "Export my data as JSON".</li>
+    <li><strong>Clear coach history:</strong> Settings → AI Coach → "Clear coach conversation history".</li>
+  </ul>
+  <p>Because we do not operate user accounts, we cannot retrieve data from your device remotely. Data control is entirely on your device.</p>
+
+  <h2>7. Data retention</h2>
+  <ul>
+    <li><strong>On your device:</strong> Data remains until you delete it or uninstall the app.</li>
+    <li><strong>On our worker:</strong> AI proxy requests are not stored by our worker after the response is returned.</li>
+    <li><strong>Third-party AI API:</strong> Retention is governed by the third-party provider's policies.</li>
+  </ul>
+
+  <h2>8. Children's privacy</h2>
+  <p>HyperliquidDrinkSmarter is not directed to children under 13 (or the minimum age required in your jurisdiction) and is not intended for use by children. We do not knowingly collect personal information from children.</p>
+
+  <h2>9. International users</h2>
+  <p>If you use AI Coach, your typed content and aggregate totals may be processed on servers located outside your country (including via Cloudflare's global network and the third-party AI API). Transfers occur over HTTPS for the purpose of generating AI responses you requested.</p>
+
+  <h2>10. Medical disclaimer</h2>
+  <p>HyperliquidDrinkSmarter provides general wellness information for healthy adults. It is <strong>not a medical device</strong>, does not diagnose or treat conditions, and is <strong>not a substitute</strong> for professional medical or nutritional advice. Consult a doctor or registered dietitian for medical or dietary concerns.</p>
+
+  <h2>11. Changes to this policy</h2>
+  <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top will change. Continued use of the app after an update constitutes acceptance of the revised policy.</p>
+
+  <h2>12. Contact us</h2>
+  <p>Questions about this Privacy Policy:</p>
+  <p><a href="mailto:support@hyperliquiddrinksmarter3121.info">support@hyperliquiddrinksmarter3121.info</a></p>
+  <p>Related: <a href="../terms/">Terms of Use</a></p>
+</body>
+</html>

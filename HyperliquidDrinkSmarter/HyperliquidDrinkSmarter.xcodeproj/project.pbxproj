@@ -1,0 +1,379 @@
+// $*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		80AE04AEFC8C40DEB4731E84 /* HyperliquidDrinkSmarterIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B491596D0D5A4873B5AB1A7E /* HyperliquidDrinkSmarterIdentity.swift */; };
+		692498B5C33F451898C1655C /* App/HyperliquidDrinkSmarterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04819808CE4648C485571AD2 /* App/HyperliquidDrinkSmarterApp.swift */; };
+		C34B17A36F1F4D4A955B6F6D /* Data/Persistence/CoachHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BCE86B572C4769BDD3D61C /* Data/Persistence/CoachHistoryRepository.swift */; };
+		B8E4C173A1944A31AB432CC0 /* Data/Persistence/GoalsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D24166B04CA4E6988890B0B /* Data/Persistence/GoalsRepository.swift */; };
+		705FE42BF67244F98457A45C /* Data/Persistence/InsightCacheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FB532B3BFD4F1A8836A70A /* Data/Persistence/InsightCacheRepository.swift */; };
+		09B66CCF3ACA4187ADE9C56B /* Data/Persistence/IntakeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E166162771824F47B9AD2FBA /* Data/Persistence/IntakeRepository.swift */; };
+		97F74FCCCCC5467FBC79DA91 /* Data/Persistence/SwiftDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BAD42687174E848808EF46 /* Data/Persistence/SwiftDataModels.swift */; };
+		FA5A17FD4C734C858650D05E /* Data/Remote/CoachAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267DFBDEAD3945DE856EA2F3 /* Data/Remote/CoachAPIClient.swift */; };
+		5E4CE3F35B0949EE9CB09739 /* Data/Remote/CoachAPIPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033AC2D575D34941B5F20CAE /* Data/Remote/CoachAPIPrompts.swift */; };
+		EE576DCBCDAF4BE1B55D6DF9 /* Data/Remote/CoachResponseDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369462DBEAA42B992ABB533 /* Data/Remote/CoachResponseDTOs.swift */; };
+		5F839698E83B4504A8FC9C31 /* Data/Remote/HyperliquidDrinkSmarterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681C76D6DD54D51A211A1BE /* Data/Remote/HyperliquidDrinkSmarterConfig.swift */; };
+		247673D45A6D4A158BC8070A /* DesignSystem/FloatingCapsuleTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16FF1E766624C62AC231AE7 /* DesignSystem/FloatingCapsuleTabBar.swift */; };
+		154C773B5DB746B4BD23221A /* DesignSystem/HyperliquidDrinkSmarterButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0FEE3882A48A298461740 /* DesignSystem/HyperliquidDrinkSmarterButtonStyles.swift */; };
+		D637FF1FBDE04C139D02CEF2 /* DesignSystem/HyperliquidDrinkSmarterColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECBB80E65943BD924754B5 /* DesignSystem/HyperliquidDrinkSmarterColors.swift */; };
+		D8CCD247B9664EB582198B6E /* DesignSystem/HyperliquidDrinkSmarterFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4945AB7BB26412FA20AB0F3 /* DesignSystem/HyperliquidDrinkSmarterFontSize.swift */; };
+		02B7267DF473422482649D93 /* DesignSystem/HyperliquidDrinkSmarterMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB952E8182A9416699BFE505 /* DesignSystem/HyperliquidDrinkSmarterMark.swift */; };
+		7739854D6CEC4104896FCCB7 /* DesignSystem/HyperliquidDrinkSmarterTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBFA03545343ACAC4FBA26 /* DesignSystem/HyperliquidDrinkSmarterTypography.swift */; };
+		64AE1F7DB0484871ABDF8B57 /* DesignSystem/LiquidProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DDE3B431A244899B47D521 /* DesignSystem/LiquidProgressRing.swift */; };
+		51B14B04F6A640099F3A5429 /* DesignSystem/MacroRingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AB9F93F0B64D20A34598B0 /* DesignSystem/MacroRingsView.swift */; };
+		34E0053BCC164487BDA414A5 /* DesignSystem/PillCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F9576E2CBE4D6788BDFCA8 /* DesignSystem/PillCardModifier.swift */; };
+		A99AFF1C58304ECCBB3286DD /* DesignSystem/WaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8F8B5BC541476C9150B834 /* DesignSystem/WaveShape.swift */; };
+		1B71909E9A8F41589C1D43F9 /* Domain/UseCases/ComputeDailyTotalsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DAC972039409D8C8C7C8B /* Domain/UseCases/ComputeDailyTotalsUseCase.swift */; };
+		7815DD7715BB4FE5A9A57B3B /* Domain/UseCases/HyperliquidDrinkSmarterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF47AA282A44E39F67C5F1 /* Domain/UseCases/HyperliquidDrinkSmarterUtilities.swift */; };
+		A50A683570734F6AB41694DB /* Domain/UseCases/LogIntakeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314ACEC4E354227A97B8385 /* Domain/UseCases/LogIntakeUseCase.swift */; };
+		17674338B1434F8DB7B6C71A /* Domain/UseCases/OfflineInsightHeuristics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FB9BCDEDB54F009595B097 /* Domain/UseCases/OfflineInsightHeuristics.swift */; };
+		DB37BDF3F8B54CEF9ACE86BC /* Domain/UseCases/RequestDailyInsightUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3213B527A4FC7BB0E290C /* Domain/UseCases/RequestDailyInsightUseCase.swift */; };
+		B642F184B0FF47A8BF6BD529 /* Domain/UseCases/RequestWeeklySummaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAEF1216F434BA3982FDD3D /* Domain/UseCases/RequestWeeklySummaryUseCase.swift */; };
+		9B3AD8572AB34C2FA2C73EFC /* Navigation/HyperliquidDrinkSmarterTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29701FE9C8DA4853B984EBC3 /* Navigation/HyperliquidDrinkSmarterTab.swift */; };
+		08943924CD1747CAA346E7C2 /* Navigation/RootShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F21CCE40741BDB9D050E0 /* Navigation/RootShellView.swift */; };
+		2688F2E5C20746158C9EDC18 /* Presentation/Coach/CoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083A85B8B9B4179AB94D0A7 /* Presentation/Coach/CoachView.swift */; };
+		565C9817D4E041E294C81EC4 /* Presentation/Log/AddDrinkSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C827EB3024159B26E6E6A /* Presentation/Log/AddDrinkSheet.swift */; };
+		AD21D22FFC1F4EBFABDE4A43 /* Presentation/Log/AddMealSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEA7F88DD6413290A9F384 /* Presentation/Log/AddMealSheet.swift */; };
+		9B255B9F50E14A0C9E1A25B4 /* Presentation/Log/IntakeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05177837ABFC4219BFE16704 /* Presentation/Log/IntakeRow.swift */; };
+		BAF52DD7E76F4482B792E5FD /* Presentation/Log/LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38931A3D1114E8AB897FD05 /* Presentation/Log/LogView.swift */; };
+		3C53D6C265C347EFBDE8348B /* Presentation/Onboarding/OnboardingFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6806C2324828443893ED9A42 /* Presentation/Onboarding/OnboardingFlowView.swift */; };
+		307921C2F41F4AC0A20328D1 /* Presentation/Settings/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26499F12B2490A9419F120 /* Presentation/Settings/SettingsView.swift */; };
+		B1F475E4774D4317A1DD5D53 /* Presentation/Today/DailyInsightCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598503833A864F7481BE3753 /* Presentation/Today/DailyInsightCard.swift */; };
+		5027432F5F3440F9814A8C64 /* Presentation/Today/QuickAddRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1EE4CF643E4B7EB7F7AF54 /* Presentation/Today/QuickAddRow.swift */; };
+		E4DE99B7F7FC45A38E5B9AE8 /* Presentation/Today/TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA91EEE0D74E4A985F31B9 /* Presentation/Today/TodayView.swift */; };
+		176F88545EF24EFFAAA9A713 /* Presentation/Trends/TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C8705F773F4880B810C73A /* Presentation/Trends/TrendsView.swift */; };
+		026D03C5B7E34B8C9260701F /* Presentation/Trends/WeeklySummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D841C1441341FD9F84445E /* Presentation/Trends/WeeklySummaryCard.swift */; };
+		D97A2998EA3D4AE68C4D2200 /* Resources/Fonts/NunitoSans/NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C92C54F5B584438BA5355957 /* Resources/Fonts/NunitoSans/NunitoSans-Bold.ttf */; };
+		7FD9A5230FB844388F81059C /* Resources/Fonts/NunitoSans/NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9CC273A1B18418896896530 /* Resources/Fonts/NunitoSans/NunitoSans-Regular.ttf */; };
+		0C9BEE1A86DF4BF5AC615DFE /* Resources/Fonts/NunitoSans/NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0505BA2129A44D81B1FF1D4E /* Resources/Fonts/NunitoSans/NunitoSans-SemiBold.ttf */; };
+		A2843AC942FD4E148624FFA5 /* Resources/Fonts/Quicksand/Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6E97AEDDD094DED9058D39F /* Resources/Fonts/Quicksand/Quicksand-Bold.ttf */; };
+		19F9DA0AED9C4AB68A9ACF21 /* Resources/Fonts/Quicksand/Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5EBA6EA9994EB18B5AE2A0 /* Resources/Fonts/Quicksand/Quicksand-Medium.ttf */; };
+		A86C09725F594DE5AF0B3E4E /* Resources/Fonts/Quicksand/Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B167C463524261813934F1 /* Resources/Fonts/Quicksand/Quicksand-Regular.ttf */; };
+		CBD3027CEF434218B9A9F939 /* Resources/Fonts/Quicksand/Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C15253668C034D5B951D7CB1 /* Resources/Fonts/Quicksand/Quicksand-SemiBold.ttf */; };
+		33E4DF6D16B04111AB13077C /* Resources/Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CC09B350524F3AB025EAC3 /* Resources/Assets.xcassets */; };
+		5C350B9690784B908E976994 /* SupportingFiles/PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6C258B49B7764788AA990980 /* SupportingFiles/PrivacyInfo.xcprivacy */; };
+		888D2DDAD1CC499B810B9979 /* HyperliquidDrinkSmarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperliquidDrinkSmarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B491596D0D5A4873B5AB1A7E /* HyperliquidDrinkSmarterIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HyperliquidDrinkSmarterIdentity.swift"; sourceTree = "<group>"; };
+		04819808CE4648C485571AD2 /* App/HyperliquidDrinkSmarterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/HyperliquidDrinkSmarterApp.swift"; sourceTree = "<group>"; };
+		C0BCE86B572C4769BDD3D61C /* Data/Persistence/CoachHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Persistence/CoachHistoryRepository.swift"; sourceTree = "<group>"; };
+		7D24166B04CA4E6988890B0B /* Data/Persistence/GoalsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Persistence/GoalsRepository.swift"; sourceTree = "<group>"; };
+		B6FB532B3BFD4F1A8836A70A /* Data/Persistence/InsightCacheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Persistence/InsightCacheRepository.swift"; sourceTree = "<group>"; };
+		E166162771824F47B9AD2FBA /* Data/Persistence/IntakeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Persistence/IntakeRepository.swift"; sourceTree = "<group>"; };
+		62BAD42687174E848808EF46 /* Data/Persistence/SwiftDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Persistence/SwiftDataModels.swift"; sourceTree = "<group>"; };
+		267DFBDEAD3945DE856EA2F3 /* Data/Remote/CoachAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Remote/CoachAPIClient.swift"; sourceTree = "<group>"; };
+		033AC2D575D34941B5F20CAE /* Data/Remote/CoachAPIPrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Remote/CoachAPIPrompts.swift"; sourceTree = "<group>"; };
+		8369462DBEAA42B992ABB533 /* Data/Remote/CoachResponseDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Remote/CoachResponseDTOs.swift"; sourceTree = "<group>"; };
+		A681C76D6DD54D51A211A1BE /* Data/Remote/HyperliquidDrinkSmarterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data/Remote/HyperliquidDrinkSmarterConfig.swift"; sourceTree = "<group>"; };
+		C16FF1E766624C62AC231AE7 /* DesignSystem/FloatingCapsuleTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/FloatingCapsuleTabBar.swift"; sourceTree = "<group>"; };
+		C4D0FEE3882A48A298461740 /* DesignSystem/HyperliquidDrinkSmarterButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/HyperliquidDrinkSmarterButtonStyles.swift"; sourceTree = "<group>"; };
+		30ECBB80E65943BD924754B5 /* DesignSystem/HyperliquidDrinkSmarterColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/HyperliquidDrinkSmarterColors.swift"; sourceTree = "<group>"; };
+		E4945AB7BB26412FA20AB0F3 /* DesignSystem/HyperliquidDrinkSmarterFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/HyperliquidDrinkSmarterFontSize.swift"; sourceTree = "<group>"; };
+		EB952E8182A9416699BFE505 /* DesignSystem/HyperliquidDrinkSmarterMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/HyperliquidDrinkSmarterMark.swift"; sourceTree = "<group>"; };
+		84DBFA03545343ACAC4FBA26 /* DesignSystem/HyperliquidDrinkSmarterTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/HyperliquidDrinkSmarterTypography.swift"; sourceTree = "<group>"; };
+		25DDE3B431A244899B47D521 /* DesignSystem/LiquidProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/LiquidProgressRing.swift"; sourceTree = "<group>"; };
+		D5AB9F93F0B64D20A34598B0 /* DesignSystem/MacroRingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/MacroRingsView.swift"; sourceTree = "<group>"; };
+		79F9576E2CBE4D6788BDFCA8 /* DesignSystem/PillCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/PillCardModifier.swift"; sourceTree = "<group>"; };
+		9F8F8B5BC541476C9150B834 /* DesignSystem/WaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem/WaveShape.swift"; sourceTree = "<group>"; };
+		2D8DAC972039409D8C8C7C8B /* Domain/UseCases/ComputeDailyTotalsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/UseCases/ComputeDailyTotalsUseCase.swift"; sourceTree = "<group>"; };
+		3ECF47AA282A44E39F67C5F1 /* Domain/UseCases/HyperliquidDrinkSmarterUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/UseCases/HyperliquidDrinkSmarterUtilities.swift"; sourceTree = "<group>"; };
+		2314ACEC4E354227A97B8385 /* Domain/UseCases/LogIntakeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/UseCases/LogIntakeUseCase.swift"; sourceTree = "<group>"; };
+		A8FB9BCDEDB54F009595B097 /* Domain/UseCases/OfflineInsightHeuristics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/UseCases/OfflineInsightHeuristics.swift"; sourceTree = "<group>"; };
+		6CC3213B527A4FC7BB0E290C /* Domain/UseCases/RequestDailyInsightUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/UseCases/RequestDailyInsightUseCase.swift"; sourceTree = "<group>"; };
+		BAAEF1216F434BA3982FDD3D /* Domain/UseCases/RequestWeeklySummaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain/UseCases/RequestWeeklySummaryUseCase.swift"; sourceTree = "<group>"; };
+		29701FE9C8DA4853B984EBC3 /* Navigation/HyperliquidDrinkSmarterTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation/HyperliquidDrinkSmarterTab.swift"; sourceTree = "<group>"; };
+		1C9F21CCE40741BDB9D050E0 /* Navigation/RootShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation/RootShellView.swift"; sourceTree = "<group>"; };
+		7083A85B8B9B4179AB94D0A7 /* Presentation/Coach/CoachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Coach/CoachView.swift"; sourceTree = "<group>"; };
+		5F4C827EB3024159B26E6E6A /* Presentation/Log/AddDrinkSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Log/AddDrinkSheet.swift"; sourceTree = "<group>"; };
+		52DEA7F88DD6413290A9F384 /* Presentation/Log/AddMealSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Log/AddMealSheet.swift"; sourceTree = "<group>"; };
+		05177837ABFC4219BFE16704 /* Presentation/Log/IntakeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Log/IntakeRow.swift"; sourceTree = "<group>"; };
+		E38931A3D1114E8AB897FD05 /* Presentation/Log/LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Log/LogView.swift"; sourceTree = "<group>"; };
+		6806C2324828443893ED9A42 /* Presentation/Onboarding/OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Onboarding/OnboardingFlowView.swift"; sourceTree = "<group>"; };
+		EB26499F12B2490A9419F120 /* Presentation/Settings/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Settings/SettingsView.swift"; sourceTree = "<group>"; };
+		598503833A864F7481BE3753 /* Presentation/Today/DailyInsightCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Today/DailyInsightCard.swift"; sourceTree = "<group>"; };
+		AF1EE4CF643E4B7EB7F7AF54 /* Presentation/Today/QuickAddRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Today/QuickAddRow.swift"; sourceTree = "<group>"; };
+		03CA91EEE0D74E4A985F31B9 /* Presentation/Today/TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Today/TodayView.swift"; sourceTree = "<group>"; };
+		E6C8705F773F4880B810C73A /* Presentation/Trends/TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Trends/TrendsView.swift"; sourceTree = "<group>"; };
+		12D841C1441341FD9F84445E /* Presentation/Trends/WeeklySummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presentation/Trends/WeeklySummaryCard.swift"; sourceTree = "<group>"; };
+		C92C54F5B584438BA5355957 /* Resources/Fonts/NunitoSans/NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/NunitoSans/NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		D9CC273A1B18418896896530 /* Resources/Fonts/NunitoSans/NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/NunitoSans/NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
+		0505BA2129A44D81B1FF1D4E /* Resources/Fonts/NunitoSans/NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/NunitoSans/NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		D6E97AEDDD094DED9058D39F /* Resources/Fonts/Quicksand/Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/Quicksand/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		DA5EBA6EA9994EB18B5AE2A0 /* Resources/Fonts/Quicksand/Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/Quicksand/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		F1B167C463524261813934F1 /* Resources/Fonts/Quicksand/Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/Quicksand/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		C15253668C034D5B951D7CB1 /* Resources/Fonts/Quicksand/Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Resources/Fonts/Quicksand/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
+		E4CC09B350524F3AB025EAC3 /* Resources/Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		DE2409813D7E479EB5E17CA6 /* SupportingFiles/Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SupportingFiles/Info.plist; sourceTree = "<group>"; };
+		6C258B49B7764788AA990980 /* SupportingFiles/PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SupportingFiles/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2919FCC8AFA44B609BDBDD1F /* SupportingFiles/Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SupportingFiles/Release.xcconfig; sourceTree = "<group>"; };
+		D7E1EA65332D4078956BF00D = {
+			isa = PBXGroup;
+			children = (
+				DF2DEDC45F96492E8CFF6C89 /* HyperliquidDrinkSmarter */,
+				2256793EFE1B4602AD09DD72 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2256793EFE1B4602AD09DD72 = {
+			isa = PBXGroup;
+			children = (
+				888D2DDAD1CC499B810B9979 /* HyperliquidDrinkSmarter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF2DEDC45F96492E8CFF6C89 = {
+			isa = PBXGroup;
+			children = (
+				E4CC09B350524F3AB025EAC3,
+				DE2409813D7E479EB5E17CA6,
+				6C258B49B7764788AA990980,
+				2919FCC8AFA44B609BDBDD1F,
+				B491596D0D5A4873B5AB1A7E,
+				04819808CE4648C485571AD2,
+				C0BCE86B572C4769BDD3D61C,
+				7D24166B04CA4E6988890B0B,
+				B6FB532B3BFD4F1A8836A70A,
+				E166162771824F47B9AD2FBA,
+				62BAD42687174E848808EF46,
+				267DFBDEAD3945DE856EA2F3,
+				033AC2D575D34941B5F20CAE,
+				8369462DBEAA42B992ABB533,
+				A681C76D6DD54D51A211A1BE,
+				C16FF1E766624C62AC231AE7,
+				C4D0FEE3882A48A298461740,
+				30ECBB80E65943BD924754B5,
+				E4945AB7BB26412FA20AB0F3,
+				EB952E8182A9416699BFE505,
+				84DBFA03545343ACAC4FBA26,
+				25DDE3B431A244899B47D521,
+				D5AB9F93F0B64D20A34598B0,
+				79F9576E2CBE4D6788BDFCA8,
+				9F8F8B5BC541476C9150B834,
+				2D8DAC972039409D8C8C7C8B,
+				3ECF47AA282A44E39F67C5F1,
+				2314ACEC4E354227A97B8385,
+				A8FB9BCDEDB54F009595B097,
+				6CC3213B527A4FC7BB0E290C,
+				BAAEF1216F434BA3982FDD3D,
+				29701FE9C8DA4853B984EBC3,
+				1C9F21CCE40741BDB9D050E0,
+				7083A85B8B9B4179AB94D0A7,
+				5F4C827EB3024159B26E6E6A,
+				52DEA7F88DD6413290A9F384,
+				05177837ABFC4219BFE16704,
+				E38931A3D1114E8AB897FD05,
+				6806C2324828443893ED9A42,
+				EB26499F12B2490A9419F120,
+				598503833A864F7481BE3753,
+				AF1EE4CF643E4B7EB7F7AF54,
+				03CA91EEE0D74E4A985F31B9,
+				E6C8705F773F4880B810C73A,
+				12D841C1441341FD9F84445E,
+				C92C54F5B584438BA5355957,
+				D9CC273A1B18418896896530,
+				0505BA2129A44D81B1FF1D4E,
+				D6E97AEDDD094DED9058D39F,
+				DA5EBA6EA9994EB18B5AE2A0,
+				F1B167C463524261813934F1,
+				C15253668C034D5B951D7CB1,
+			);
+			path = HyperliquidDrinkSmarter;
+			sourceTree = "<group>";
+		};
+		4A8765CABBD2457A8E76963C = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3684AB67140944D087C093A0 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AE04AEFC8C40DEB4731E84 /* HyperliquidDrinkSmarterIdentity.swift in Sources */,
+				692498B5C33F451898C1655C /* App/HyperliquidDrinkSmarterApp.swift in Sources */,
+				C34B17A36F1F4D4A955B6F6D /* Data/Persistence/CoachHistoryRepository.swift in Sources */,
+				B8E4C173A1944A31AB432CC0 /* Data/Persistence/GoalsRepository.swift in Sources */,
+				705FE42BF67244F98457A45C /* Data/Persistence/InsightCacheRepository.swift in Sources */,
+				09B66CCF3ACA4187ADE9C56B /* Data/Persistence/IntakeRepository.swift in Sources */,
+				97F74FCCCCC5467FBC79DA91 /* Data/Persistence/SwiftDataModels.swift in Sources */,
+				FA5A17FD4C734C858650D05E /* Data/Remote/CoachAPIClient.swift in Sources */,
+				5E4CE3F35B0949EE9CB09739 /* Data/Remote/CoachAPIPrompts.swift in Sources */,
+				EE576DCBCDAF4BE1B55D6DF9 /* Data/Remote/CoachResponseDTOs.swift in Sources */,
+				5F839698E83B4504A8FC9C31 /* Data/Remote/HyperliquidDrinkSmarterConfig.swift in Sources */,
+				247673D45A6D4A158BC8070A /* DesignSystem/FloatingCapsuleTabBar.swift in Sources */,
+				154C773B5DB746B4BD23221A /* DesignSystem/HyperliquidDrinkSmarterButtonStyles.swift in Sources */,
+				D637FF1FBDE04C139D02CEF2 /* DesignSystem/HyperliquidDrinkSmarterColors.swift in Sources */,
+				D8CCD247B9664EB582198B6E /* DesignSystem/HyperliquidDrinkSmarterFontSize.swift in Sources */,
+				02B7267DF473422482649D93 /* DesignSystem/HyperliquidDrinkSmarterMark.swift in Sources */,
+				7739854D6CEC4104896FCCB7 /* DesignSystem/HyperliquidDrinkSmarterTypography.swift in Sources */,
+				64AE1F7DB0484871ABDF8B57 /* DesignSystem/LiquidProgressRing.swift in Sources */,
+				51B14B04F6A640099F3A5429 /* DesignSystem/MacroRingsView.swift in Sources */,
+				34E0053BCC164487BDA414A5 /* DesignSystem/PillCardModifier.swift in Sources */,
+				A99AFF1C58304ECCBB3286DD /* DesignSystem/WaveShape.swift in Sources */,
+				1B71909E9A8F41589C1D43F9 /* Domain/UseCases/ComputeDailyTotalsUseCase.swift in Sources */,
+				7815DD7715BB4FE5A9A57B3B /* Domain/UseCases/HyperliquidDrinkSmarterUtilities.swift in Sources */,
+				A50A683570734F6AB41694DB /* Domain/UseCases/LogIntakeUseCase.swift in Sources */,
+				17674338B1434F8DB7B6C71A /* Domain/UseCases/OfflineInsightHeuristics.swift in Sources */,
+				DB37BDF3F8B54CEF9ACE86BC /* Domain/UseCases/RequestDailyInsightUseCase.swift in Sources */,
+				B642F184B0FF47A8BF6BD529 /* Domain/UseCases/RequestWeeklySummaryUseCase.swift in Sources */,
+				9B3AD8572AB34C2FA2C73EFC /* Navigation/HyperliquidDrinkSmarterTab.swift in Sources */,
+				08943924CD1747CAA346E7C2 /* Navigation/RootShellView.swift in Sources */,
+				2688F2E5C20746158C9EDC18 /* Presentation/Coach/CoachView.swift in Sources */,
+				565C9817D4E041E294C81EC4 /* Presentation/Log/AddDrinkSheet.swift in Sources */,
+				AD21D22FFC1F4EBFABDE4A43 /* Presentation/Log/AddMealSheet.swift in Sources */,
+				9B255B9F50E14A0C9E1A25B4 /* Presentation/Log/IntakeRow.swift in Sources */,
+				BAF52DD7E76F4482B792E5FD /* Presentation/Log/LogView.swift in Sources */,
+				3C53D6C265C347EFBDE8348B /* Presentation/Onboarding/OnboardingFlowView.swift in Sources */,
+				307921C2F41F4AC0A20328D1 /* Presentation/Settings/SettingsView.swift in Sources */,
+				B1F475E4774D4317A1DD5D53 /* Presentation/Today/DailyInsightCard.swift in Sources */,
+				5027432F5F3440F9814A8C64 /* Presentation/Today/QuickAddRow.swift in Sources */,
+				E4DE99B7F7FC45A38E5B9AE8 /* Presentation/Today/TodayView.swift in Sources */,
+				176F88545EF24EFFAAA9A713 /* Presentation/Trends/TrendsView.swift in Sources */,
+				026D03C5B7E34B8C9260701F /* Presentation/Trends/WeeklySummaryCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8226F6FCEDD4E16902047D5 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33E4DF6D16B04111AB13077C /* Resources/Assets.xcassets in Resources */,
+				5C350B9690784B908E976994 /* SupportingFiles/PrivacyInfo.xcprivacy in Resources */,
+				D97A2998EA3D4AE68C4D2200 /* Resources/Fonts/NunitoSans/NunitoSans-Bold.ttf in Resources */,
+				7FD9A5230FB844388F81059C /* Resources/Fonts/NunitoSans/NunitoSans-Regular.ttf in Resources */,
+				0C9BEE1A86DF4BF5AC615DFE /* Resources/Fonts/NunitoSans/NunitoSans-SemiBold.ttf in Resources */,
+				A2843AC942FD4E148624FFA5 /* Resources/Fonts/Quicksand/Quicksand-Bold.ttf in Resources */,
+				19F9DA0AED9C4AB68A9ACF21 /* Resources/Fonts/Quicksand/Quicksand-Medium.ttf in Resources */,
+				A86C09725F594DE5AF0B3E4E /* Resources/Fonts/Quicksand/Quicksand-Regular.ttf in Resources */,
+				CBD3027CEF434218B9A9F939 /* Resources/Fonts/Quicksand/Quicksand-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B612A66D38A74EFEA8816BBB = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D241A674FD314BEAA727F954;
+			buildPhases = (
+				3684AB67140944D087C093A0,
+				4A8765CABBD2457A8E76963C,
+				D8226F6FCEDD4E16902047D5,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HyperliquidDrinkSmarter;
+			productName = HyperliquidDrinkSmarter;
+			productReference = 888D2DDAD1CC499B810B9979;
+			productType = "com.apple.product-type.application";
+		};
+		19BFE2AEBB96471C9E352AF1 = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 9E6667E3E009439BB9C1BDEF;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7E1EA65332D4078956BF00D;
+			productRefGroup = 2256793EFE1B4602AD09DD72;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B612A66D38A74EFEA8816BBB,
+			);
+		};
+		84E002E07691445CBC8B100D = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_VERSION = 5.0;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			};
+			name = Debug;
+		};
+		B46A195C1AAD4848BD7F2D71 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		55AB286BF8CD4A9193F565F8 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HyperliquidDrinkSmarter/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0.0;
+				PRIVACY_MANIFEST_PATH = HyperliquidDrinkSmarter/SupportingFiles/PrivacyInfo.xcprivacy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperliquiddrinksmarter.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			};
+			name = Debug;
+		};
+		2F210A61191349EC8995F344 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2919FCC8AFA44B609BDBDD1F /* SupportingFiles/Release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HyperliquidDrinkSmarter/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0.0;
+				PRIVACY_MANIFEST_PATH = HyperliquidDrinkSmarter/SupportingFiles/PrivacyInfo.xcprivacy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperliquiddrinksmarter.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			};
+			name = Release;
+		};
+		9E6667E3E009439BB9C1BDEF = {
+			isa = XCConfigurationList;
+			buildConfigurations = (84E002E07691445CBC8B100D, B46A195C1AAD4848BD7F2D71);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D241A674FD314BEAA727F954 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (55AB286BF8CD4A9193F565F8, 2F210A61191349EC8995F344);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+	};
+	rootObject = 19BFE2AEBB96471C9E352AF1;
+}

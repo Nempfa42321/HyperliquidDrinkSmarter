@@ -1,0 +1,83 @@
+workflows:
+  hyperliquid-drink-smarter-app-store:
+    name: Hyperliquid Drink Smarter — App Store (TestFlight)
+    max_build_duration: 90
+    instance_type: mac_mini_m2
+
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.hyperliquiddrinksmarter.app
+      vars:
+        XCODE_PROJECT: HyperliquidDrinkSmarter/HyperliquidDrinkSmarter.xcodeproj
+        XCODE_SCHEME: HyperliquidDrinkSmarter
+        BUNDLE_ID: com.hyperliquiddrinksmarter.app
+        APP_STORE_APPLE_ID: "YOUR_APP_STORE_CONNECT_APP_ID"
+      xcode: latest
+      cocoapods: default
+
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+
+    scripts:
+      - name: Set up code signing
+        script: |
+          keychain initialize
+          xcode-project use-profiles
+
+      - name: Set build number from Codemagic
+        script: |
+          cd "$CM_BUILD_DIR/HyperliquidDrinkSmarter"
+          agvtool new-version -all "$BUILD_NUMBER"
+
+      - name: Build IPA for App Store
+        script: |
+          xcode-project build-ipa \
+            --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME" \
+            --export-options-plist "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+
+    publishing:
+      email:
+        recipients:
+          - support@hyperliquiddrinksmarter3121.info
+        notify:
+          success: true
+          failure: true
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store: false
+
+  hyperliquid-drink-smarter-ios-build:
+    name: Hyperliquid Drink Smarter — iOS build only
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+
+    environment:
+      vars:
+        XCODE_PROJECT: HyperliquidDrinkSmarter/HyperliquidDrinkSmarter.xcodeproj
+        XCODE_SCHEME: HyperliquidDrinkSmarter
+      xcode: latest
+
+    scripts:
+      - name: Build for iOS Simulator (sanity check)
+        script: |
+          xcodebuild -project "$CM_BUILD_DIR/$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -configuration Release \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+    artifacts:
+      - /tmp/xcodebuild_logs/*.log

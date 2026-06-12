@@ -1,0 +1,13 @@
+name = "hyperliquiddrinksmarter-api-proxy"
+main = "src/index.ts"
+compatibility_date = "2024-09-01"
+
+# Secret (set via CLI or Dashboard — never commit the key):
+#   API_DEEPSEEK_KEY = your provider API token
+#
+# If dotpoin is slow/down, switch upstream + key together, e.g.:
+#   UPSTREAM_URL = https://api.deepseek.com/chat/completions
+#   API_DEEPSEEK_KEY = sk-... from platform.deepseek.com
+
+[vars]
+UPSTREAM_URL = "https://llms.dotpoin.com/v1/chat/completions"
