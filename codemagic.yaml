@@ -105,6 +105,7 @@ workflows:
           failure: true
       app_store_connect:
         auth: integration
+        apple_id: $APP_STORE_APPLE_ID
         submit_to_testflight: true
         submit_to_app_store: false
 
