@@ -15,6 +15,7 @@ workflows:
         XCODE_PROJECT: HyperliquidDrinkSmarter/HyperliquidDrinkSmarter.xcodeproj
         XCODE_SCHEME: HyperliquidDrinkSmarter
         BUNDLE_ID: com.hyperliquiddrinksmarter.app
+        EXPORT_OPTIONS_PLIST: HyperliquidDrinkSmarter/ExportOptions.plist
       xcode: latest
       cocoapods: default
 
@@ -33,28 +34,50 @@ workflows:
           keychain add-certificates
           xcode-project use-profiles --project "$CM_BUILD_DIR/$XCODE_PROJECT"
 
-          echo "Available code signing identities:"
-          security find-identity -v -p codesigning || true
-
           PROFILE_PATH=$(find "$HOME/Library/MobileDevice/Provisioning Profiles" -name "*.mobileprovision" | head -1)
           if [ -z "$PROFILE_PATH" ]; then
-            echo "No provisioning profile found after use-profiles"
+            echo "ERROR: No provisioning profile found in Codemagic."
+            echo "Upload App Store profile for $BUNDLE_ID in Team settings > Code signing identities."
             exit 1
           fi
 
           TEAM_ID=$(security cms -D -i "$PROFILE_PATH" | plutil -extract TeamIdentifier.0 raw -)
           PROFILE_NAME=$(security cms -D -i "$PROFILE_PATH" | plutil -extract Name raw -)
-          echo "Using Team ID: $TEAM_ID"
-          echo "Using profile: $PROFILE_NAME"
+          echo "Team ID: $TEAM_ID"
+          echo "Profile: $PROFILE_NAME"
           echo "DEVELOPMENT_TEAM=$TEAM_ID" >> "$CM_ENV"
 
-          /usr/libexec/PlistBuddy -c "Delete :teamID" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Add :teamID string $TEAM_ID" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+          security find-identity -v -p codesigning || true
 
-          /usr/libexec/PlistBuddy -c "Delete :provisioningProfiles" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
-          /usr/libexec/PlistBuddy -c "Delete :signingCertificate" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Add :signingCertificate string Apple Distribution" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+          EXPORT="$CM_BUILD_DIR/$EXPORT_OPTIONS_PLIST"
+          {
+            echo '<?xml version="1.0" encoding="UTF-8"?>'
+            echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">'
+            echo '<plist version="1.0">'
+            echo '<dict>'
+            echo '  <key>method</key>'
+            echo '  <string>app-store</string>'
+            echo '  <key>teamID</key>'
+            echo "  <string>${TEAM_ID}</string>"
+            echo '  <key>signingStyle</key>'
+            echo '  <string>manual</string>'
+            echo '  <key>signingCertificate</key>'
+            echo '  <string>Apple Distribution</string>'
+            echo '  <key>provisioningProfiles</key>'
+            echo '  <dict>'
+            echo "    <key>${BUNDLE_ID}</key>"
+            echo "    <string>${PROFILE_NAME}</string>"
+            echo '  </dict>'
+            echo '  <key>stripSwiftSymbols</key>'
+            echo '  <true/>'
+            echo '  <key>uploadSymbols</key>'
+            echo '  <true/>'
+            echo '</dict>'
+            echo '</plist>'
+          } > "$EXPORT"
+
+          echo "ExportOptions.plist:"
+          cat "$EXPORT"
 
       - name: Set build number from Codemagic
         script: |
@@ -66,7 +89,7 @@ workflows:
           xcode-project build-ipa \
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME" \
-            --export-options-plist "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+            --export-options-plist "$CM_BUILD_DIR/$EXPORT_OPTIONS_PLIST"
 
     artifacts:
       - build/ios/ipa/*.ipa
