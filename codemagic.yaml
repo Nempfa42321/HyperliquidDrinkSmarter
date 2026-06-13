@@ -30,7 +30,11 @@ workflows:
         script: |
           set -e
           keychain initialize
+          keychain add-certificates
           xcode-project use-profiles --project "$CM_BUILD_DIR/$XCODE_PROJECT"
+
+          echo "Available code signing identities:"
+          security find-identity -v -p codesigning || true
 
           PROFILE_PATH=$(find "$HOME/Library/MobileDevice/Provisioning Profiles" -name "*.mobileprovision" | head -1)
           if [ -z "$PROFILE_PATH" ]; then
@@ -49,7 +53,8 @@ workflows:
 
           /usr/libexec/PlistBuddy -c "Delete :provisioningProfiles" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
           /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
-          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:$BUNDLE_ID string $PROFILE_NAME" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+          /usr/libexec/PlistBuddy -c "Delete :signingCertificate" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c "Add :signingCertificate string Apple Distribution" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
 
       - name: Set build number from Codemagic
         script: |
