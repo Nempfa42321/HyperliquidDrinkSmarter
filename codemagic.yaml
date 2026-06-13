@@ -8,6 +8,8 @@ workflows:
       app_store_connect: Codemagic
 
     environment:
+      groups:
+        - code-signing
       vars:
         XCODE_PROJECT: HyperliquidDrinkSmarter/HyperliquidDrinkSmarter.xcodeproj
         XCODE_SCHEME: HyperliquidDrinkSmarter
