@@ -16,6 +16,7 @@ build/
 
 # Secrets / local
 *.env
+ios_distribution_private_key.pem
 worker/.env
 worker/.dev.vars
 legal/node_modules/
