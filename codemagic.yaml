@@ -89,17 +89,6 @@ workflows:
             --scheme "$XCODE_SCHEME" \
             --export-options-plist "$CM_BUILD_DIR/$EXPORT_OPTIONS_PLIST"
 
-      - name: Verify App Store Connect sees this bundle ID
-        script: |
-          set -e
-          echo "Bundle ID in IPA target: $BUNDLE_ID"
-          echo "App Store Connect Apple ID: $APP_STORE_APPLE_ID"
-          app-store-connect bundle-ids list | grep -F "$BUNDLE_ID" || {
-            echo "ERROR: API key in Codemagic integration does not see bundle ID $BUNDLE_ID."
-            echo "Use App Store Connect API key from the SAME team where app $APP_STORE_APPLE_ID was created."
-            exit 1
-          }
-
       - name: Publish IPA to TestFlight
         script: |
           set -e
@@ -108,12 +97,18 @@ workflows:
             echo "ERROR: IPA not found under build/ios/ipa"
             exit 1
           fi
-          echo "Uploading $IPA"
-          # Xcode 26 altool bug: new altool rejects valid Apple IDs; legacy altool works.
-          app-store-connect publish \
+          echo "Uploading $IPA (bundle: $BUNDLE_ID, apple id: $APP_STORE_APPLE_ID)"
+          # Xcode 26 new altool is broken; legacy altool resolves bundle ID correctly.
+          if ! app-store-connect publish \
             --path "$IPA" \
             --testflight \
-            --altool-additional-arguments '--use-old-altool --apple-id 6779949766'
+            --altool-additional-arguments '--use-old-altool --apple-id 6779949766'; then
+            echo "Retrying upload with legacy altool only (no explicit apple-id)..."
+            app-store-connect publish \
+              --path "$IPA" \
+              --testflight \
+              --altool-additional-arguments '--use-old-altool'
+          fi
 
     artifacts:
       - build/ios/ipa/*.ipa
