@@ -28,8 +28,28 @@ workflows:
     scripts:
       - name: Set up code signing
         script: |
+          set -e
           keychain initialize
-          xcode-project use-profiles
+          xcode-project use-profiles --project "$CM_BUILD_DIR/$XCODE_PROJECT"
+
+          PROFILE_PATH=$(find "$HOME/Library/MobileDevice/Provisioning Profiles" -name "*.mobileprovision" | head -1)
+          if [ -z "$PROFILE_PATH" ]; then
+            echo "No provisioning profile found after use-profiles"
+            exit 1
+          fi
+
+          TEAM_ID=$(security cms -D -i "$PROFILE_PATH" | plutil -extract TeamIdentifier.0 raw -)
+          PROFILE_NAME=$(security cms -D -i "$PROFILE_PATH" | plutil -extract Name raw -)
+          echo "Using Team ID: $TEAM_ID"
+          echo "Using profile: $PROFILE_NAME"
+          echo "DEVELOPMENT_TEAM=$TEAM_ID" >> "$CM_ENV"
+
+          /usr/libexec/PlistBuddy -c "Delete :teamID" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c "Add :teamID string $TEAM_ID" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+
+          /usr/libexec/PlistBuddy -c "Delete :provisioningProfiles" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist" 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
+          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:$BUNDLE_ID string $PROFILE_NAME" "$CM_BUILD_DIR/HyperliquidDrinkSmarter/ExportOptions.plist"
 
       - name: Set build number from Codemagic
         script: |
