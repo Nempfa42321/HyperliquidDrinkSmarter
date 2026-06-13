@@ -16,7 +16,7 @@ workflows:
         XCODE_SCHEME: HyperliquidDrinkSmarter
         BUNDLE_ID: com.hyperliquiddrinksmarter.app
         EXPORT_OPTIONS_PLIST: HyperliquidDrinkSmarter/ExportOptions.plist
-        APP_STORE_CONNECT_ALTOOL_ADDITIONAL_ARGUMENTS: "--apple-id 6779949766"
+        APP_STORE_APPLE_ID: 6779949766
       xcode: latest
 
     triggering:
@@ -76,10 +76,11 @@ workflows:
             echo '</plist>'
           } > "$EXPORT"
 
-      - name: Set build number from Codemagic
+      - name: Set build number from App Store Connect
         script: |
           cd "$CM_BUILD_DIR/HyperliquidDrinkSmarter"
-          agvtool new-version -all "$BUILD_NUMBER"
+          LATEST=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
+          agvtool new-version -all $(($LATEST + 1))
 
       - name: Build IPA for App Store
         script: |
@@ -87,6 +88,32 @@ workflows:
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME" \
             --export-options-plist "$CM_BUILD_DIR/$EXPORT_OPTIONS_PLIST"
+
+      - name: Verify App Store Connect sees this bundle ID
+        script: |
+          set -e
+          echo "Bundle ID in IPA target: $BUNDLE_ID"
+          echo "App Store Connect Apple ID: $APP_STORE_APPLE_ID"
+          app-store-connect bundle-ids list | grep -F "$BUNDLE_ID" || {
+            echo "ERROR: API key in Codemagic integration does not see bundle ID $BUNDLE_ID."
+            echo "Use App Store Connect API key from the SAME team where app $APP_STORE_APPLE_ID was created."
+            exit 1
+          }
+
+      - name: Publish IPA to TestFlight
+        script: |
+          set -e
+          IPA=$(find "$CM_BUILD_DIR/build/ios/ipa" -name "*.ipa" | head -1)
+          if [ -z "$IPA" ]; then
+            echo "ERROR: IPA not found under build/ios/ipa"
+            exit 1
+          fi
+          echo "Uploading $IPA"
+          # Xcode 26 altool bug: new altool rejects valid Apple IDs; legacy altool works.
+          app-store-connect publish \
+            --path "$IPA" \
+            --testflight \
+            --altool-additional-arguments '--use-old-altool --apple-id 6779949766'
 
     artifacts:
       - build/ios/ipa/*.ipa
@@ -100,10 +127,6 @@ workflows:
         notify:
           success: true
           failure: true
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
-        submit_to_app_store: false
 
   hyperliquid-drink-smarter-ios-build:
     name: Hyperliquid Drink Smarter — iOS build only
