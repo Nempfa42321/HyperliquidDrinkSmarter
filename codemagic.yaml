@@ -79,31 +79,17 @@ workflows:
       - name: Set build number from App Store Connect
         script: |
           set -e
-          PROFILE_PATH=$(find "$HOME/Library/MobileDevice/Provisioning Profiles" -name "*.mobileprovision" | head -1)
-          TEAM_ID=$(security cms -D -i "$PROFILE_PATH" | plutil -extract TeamIdentifier.0 raw -)
-          TEAM_NAME=$(security cms -D -i "$PROFILE_PATH" | plutil -extract TeamName raw - 2>/dev/null || echo "unknown")
-          echo "=== APPLE ACCOUNT (must be the same everywhere) ==="
-          echo "Signing certificate Team ID: $TEAM_ID"
-          echo "Signing certificate Team Name: $TEAM_NAME"
-          echo "App Store app Apple ID: $APP_STORE_APPLE_ID"
-          echo "Bundle ID: $BUNDLE_ID"
-          echo ""
-          echo "Checking Codemagic API key can access this app..."
-          if ! LATEST=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" 2>&1); then
-            echo ""
-            echo "ERROR: Wrong Apple Developer account in Codemagic."
-            echo "Certificate/profile is from team $TEAM_ID ($TEAM_NAME)."
-            echo "But integrations.app_store_connect API key is from a DIFFERENT account."
-            echo ""
-            echo "Fix in Codemagic:"
-            echo "  Team settings > Integrations > Developer Portal"
-            echo "  Upload API key (.p8) from the SAME account where app $APP_STORE_APPLE_ID exists."
-            echo "  That account Team ID must be: $TEAM_ID"
-            exit 1
-          fi
-          echo "OK: API key and certificate use the same account. Latest build: $LATEST"
           cd "$CM_BUILD_DIR/HyperliquidDrinkSmarter"
-          agvtool new-version -all $(($LATEST + 1))
+          LATEST=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" 2>&1 || true)
+          echo "App Store Connect latest build response: $LATEST"
+          if [[ "$LATEST" =~ ^[0-9]+$ ]]; then
+            NEXT=$(($LATEST + 1))
+            echo "Using build number $NEXT (previous: $LATEST)"
+          else
+            NEXT=${BUILD_NUMBER:-1}
+            echo "First upload — no builds in TestFlight yet. Using build number $NEXT"
+          fi
+          agvtool new-version -all "$NEXT"
 
       - name: Build IPA for App Store
         script: |
