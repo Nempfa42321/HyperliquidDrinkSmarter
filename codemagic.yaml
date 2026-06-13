@@ -15,9 +15,10 @@ workflows:
         XCODE_PROJECT: HyperliquidDrinkSmarter/HyperliquidDrinkSmarter.xcodeproj
         XCODE_SCHEME: HyperliquidDrinkSmarter
         BUNDLE_ID: com.hyperliquiddrinksmarter.app
+        APP_STORE_APPLE_ID: 6779949766
+        APP_STORE_CONNECT_ALTOOL_ADDITIONAL_ARGUMENTS: "--apple-id 6779949766"
         EXPORT_OPTIONS_PLIST: HyperliquidDrinkSmarter/ExportOptions.plist
       xcode: latest
-      cocoapods: default
 
     triggering:
       events:
@@ -76,13 +77,11 @@ workflows:
             echo '</plist>'
           } > "$EXPORT"
 
-          echo "ExportOptions.plist:"
-          cat "$EXPORT"
-
-      - name: Set build number from Codemagic
+      - name: Increment build number
         script: |
           cd "$CM_BUILD_DIR/HyperliquidDrinkSmarter"
-          agvtool new-version -all "$BUILD_NUMBER"
+          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" || echo "0")
+          agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
 
       - name: Build IPA for App Store
         script: |
@@ -105,7 +104,6 @@ workflows:
           failure: true
       app_store_connect:
         auth: integration
-        apple_id: 6779949766
         submit_to_testflight: true
         submit_to_app_store: false
 
