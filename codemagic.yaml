@@ -98,7 +98,7 @@ workflows:
             --scheme "$XCODE_SCHEME" \
             --export-options-plist "$CM_BUILD_DIR/$EXPORT_OPTIONS_PLIST"
 
-      - name: Publish IPA to TestFlight
+      - name: Publish IPA to App Store Connect
         script: |
           set -e
           IPA=$(find "$CM_BUILD_DIR/build/ios/ipa" -name "*.ipa" | head -1)
@@ -106,18 +106,10 @@ workflows:
             echo "ERROR: IPA not found under build/ios/ipa"
             exit 1
           fi
-          echo "Uploading $IPA (bundle: $BUNDLE_ID, apple id: $APP_STORE_APPLE_ID)"
-          # Xcode 26 new altool is broken; legacy altool resolves bundle ID correctly.
-          if ! app-store-connect publish \
-            --path "$IPA" \
-            --testflight \
-            --altool-additional-arguments '--use-old-altool --apple-id 6779949766'; then
-            echo "Retrying upload with legacy altool only (no explicit apple-id)..."
-            app-store-connect publish \
-              --path "$IPA" \
-              --testflight \
-              --altool-additional-arguments '--use-old-altool'
-          fi
+          export APP_STORE_CONNECT_ALTOOL_ADDITIONAL_ARGUMENTS="--use-old-altool --apple-id 6779949766"
+          echo "Uploading $IPA to App Store Connect (TestFlight processing)..."
+          app-store-connect publish --path "$IPA"
+          echo "Upload finished. Add internal testers in App Store Connect > TestFlight."
 
     artifacts:
       - build/ios/ipa/*.ipa
